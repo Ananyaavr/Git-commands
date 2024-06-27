@@ -1,0 +1,94 @@
+git init sample
+#Initialized empty Git repository in C:/Users/ramae/sample/.git/
+
+cd sample
+#goes to specific directory
+
+git status
+#On branch master
+#No commits yet
+
+echo file1 > file.txt
+#file1 content is written in file.txt and > denotes shadowing above the content and >> denotes appending the contents.
+
+echo file2 > file.txt
+#same discussed above
+
+git add .
+#adds all things mentioned above to the master
+
+
+git commit -m "Initial Commit with two files"
+#commits a message with the above content
+
+git log
+#commit 98433fb4a0d47385340ff47cf66a5adf71748fa0 (HEAD ->
+ master)
+Author: Ananyaavr <727721euai003@skcet.ac.in>
+Date:   Thu Jun 27 13:22:56 2024 +0530
+
+    Initial Commit with two files
+
+#gives the details of lastly committed message
+
+git checkout master
+#goes to master branch
+
+git branch styles
+#creates branch with the name styles
+
+git checkout styles
+#goes to the styles branch
+
+git branch
+#lists out the branches
+following are:
+ master
+* styles
+#the asterick symbol denotes that it is currently in that directory
+
+echo Style changes >> file1.txt
+#writes the content style changes to file1.txt
+
+type file1.txt
+#shows the content in file1.txt
+
+echo second change >> file1.txt
+#adds the content
+
+git add .
+#adds all the content
+
+git commit -m "Restyle made"
+#adds the commit message with the above changes made in file1 and file2.txt
+
+git checkout master
+#while encountering again with master it does not show the changes made in styles branch
+
+git checkout -b login_issue
+#create  new branch with login_issue to handle the issue without the disturbing the main codebase. -b creates a new branch
+
+echo Login changes >> file2.txt
+#this creates a file with the necessary changes to be made in it 
+
+git add .
+#adding all the latest files to login_issue
+
+git commit -m "Fix login issue"
+#commits the message
+
+git merge login_issue
+#merges the login_issue branch with the main code master
+
+git branch -d login_issue
+#after merging the new branch created login_issue can be deleted
+#-d is used to delete the specific branch
+
+then also merge styles to master or if needed to make changes in styles go to styles branch associate the merge operation of master to styles,then make changes in style then add . then commit message then merge the styles to master
+then again delete the branch styles
+
+git log
+#shows the committed messages in the master branch
+
+
+
